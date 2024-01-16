@@ -23,11 +23,19 @@ import kotlin.system.exitProcess
 
 class MainActivity : AppCompatActivity()  {
 
+    //声明sp 缓存
+    private val sp by lazy {
+        getSharedPreferences("godot_privacy", Activity.MODE_PRIVATE)
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        //判断是否同意
+        if(sp.getBoolean("argee",false)){
+            toGodotApp()
+            return
+        }
         setFullScreen()
         setContentView(R.layout.activity_main)
-
         try {
             loadJsonFromAsset().let {configEntity ->
                 findViewById<TextView>(R.id.textview).apply {
@@ -56,6 +64,8 @@ class MainActivity : AppCompatActivity()  {
         findViewById<Button>(R.id.agree).setOnClickListener {
             //读取asset目录
             toGodotApp()
+            //设置缓存argee 同意
+            sp.edit().putBoolean("argee",true).apply()
 
         }
         findViewById<Button>(R.id.quit).setOnClickListener {
