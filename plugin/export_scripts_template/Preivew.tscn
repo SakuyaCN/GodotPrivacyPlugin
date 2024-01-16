@@ -1,0 +1,128 @@
+[gd_scene load_steps=7 format=3 uid="uid://drya3riyvlsfn"]
+
+[ext_resource type="Script" path="res://addons/GodotPrivacyPlugin/Preivew.gd" id="1_xjgiw"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_a8cc4"]
+font_size = 14
+font_color = Color(0.376471, 0.376471, 0.376471, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xc00h"]
+bg_color = Color(0.180392, 0.321569, 0.4, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+shadow_color = Color(0.670588, 0.670588, 0.670588, 0.313726)
+shadow_size = 8
+shadow_offset = Vector2(0, 4)
+
+[sub_resource type="LabelSettings" id="LabelSettings_4j0cr"]
+font_color = Color(0.94902, 0.94902, 0.94902, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r35ad"]
+bg_color = Color(0.439216, 0.756863, 0.701961, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+shadow_color = Color(0, 0, 0, 0.0901961)
+shadow_size = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nefae"]
+bg_color = Color(0.94902, 0.372549, 0.360784, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+shadow_color = Color(0, 0, 0, 0.0901961)
+shadow_size = 4
+
+[node name="Preivew" type="Window"]
+position = Vector2i(0, 36)
+size = Vector2i(375, 720)
+script = ExtResource("1_xjgiw")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(400, 500)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.94902, 0.94902, 0.94902, 1)
+
+[node name="Label" type="Label" parent="ColorRect"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -23.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "此效果仅供预览,请勿直接修改，
+前往config.json配置参数后自动同步"
+label_settings = SubResource("LabelSettings_a8cc4")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 1
+
+[node name="Panel" type="Panel" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -156.5
+offset_top = -249.0
+offset_right = 156.5
+offset_bottom = 249.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_xc00h")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="ColorRect/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 14.0
+offset_top = 14.0
+offset_right = -11.0
+offset_bottom = -79.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_scroll_mode = 0
+
+[node name="Label" type="Label" parent="ColorRect/Panel/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "隐私政策正文"
+label_settings = SubResource("LabelSettings_4j0cr")
+autowrap_mode = 2
+
+[node name="Button" type="Button" parent="ColorRect/Panel"]
+layout_mode = 0
+offset_left = 45.0
+offset_top = 434.0
+offset_right = 133.0
+offset_bottom = 475.0
+theme_override_colors/font_color = Color(0.0588235, 0.0588235, 0.0588235, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_r35ad")
+text = "同意"
+
+[node name="Button2" type="Button" parent="ColorRect/Panel"]
+layout_mode = 0
+offset_left = 187.0
+offset_top = 434.0
+offset_right = 275.0
+offset_bottom = 475.0
+theme_override_colors/font_color = Color(0.94902, 0.94902, 0.94902, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_nefae")
+text = "退出"
+
+[connection signal="about_to_popup" from="." to="." method="_on_about_to_popup"]
+[connection signal="close_requested" from="." to="." method="_on_close_requested"]
+[connection signal="focus_entered" from="." to="." method="_on_focus_entered"]

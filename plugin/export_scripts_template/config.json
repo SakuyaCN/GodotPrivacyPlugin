@@ -1,0 +1,14 @@
+{
+	"textPath":"res://test.txt",
+	"backgroundColor":"#F2F2F2",
+	"contentColor":"#2E5266",
+	"textColor":"#F2F2F2",
+	"agreeBtn":{
+		"color":"#70C1B3",
+		"textColor":"#0f0f0f"
+	},
+	"cancelBtn":{
+		"color":"#F25F5C",
+		"textColor":"#F2F2F2"
+	}
+}
