@@ -1,14 +1,15 @@
 {
-	"textPath":"res://test.txt",
-	"backgroundColor":"#F2F2F2",
-	"contentColor":"#2E5266",
-	"textColor":"#F2F2F2",
+	"textPath":"res://addons/GodotPrivacyPlugin/privacy.txt",
+	"backgroundColor":"#ffffff",
+	"contentColor":"#ffffff",
+	"textColor":"#000000",
 	"agreeBtn":{
-		"color":"#70C1B3",
-		"textColor":"#0f0f0f"
+		"color":"#000000",
+		"textColor":"#ffffff"
 	},
 	"cancelBtn":{
-		"color":"#F25F5C",
-		"textColor":"#F2F2F2"
+		"color":"#ffffff",
+		"textColor":"#000000",
+		"text":"拒绝"
 	}
 }

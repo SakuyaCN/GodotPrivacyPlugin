@@ -10,6 +10,7 @@ import android.view.View
 import android.view.WindowInsets
 import android.view.WindowInsetsController
 import android.view.WindowManager
+import android.text.method.LinkMovementMethod
 import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
@@ -44,6 +45,7 @@ class MainActivity : AppCompatActivity()  {
                         .build()
                     markwon.setMarkdown(this,loadTextFromAsset(configEntity.textPath))
                     setTextColor(Color.parseColor(configEntity.textColor))
+                    movementMethod = LinkMovementMethod.getInstance()
                 }
 
                 findViewById<Button>(R.id.agree).apply {
