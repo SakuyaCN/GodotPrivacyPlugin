@@ -55,6 +55,7 @@ dependencies {
     implementation("androidx.constraintlayout:constraintlayout:2.1.3")
     implementation ("io.noties.markwon:core:${markwonVersion}")
     implementation ("io.noties.markwon:html:${markwonVersion}")
+    implementation ("io.noties.markwon:linkify:${markwonVersion}")
     implementation("com.google.code.gson:gson:2.10.1")
 
 
